@@ -5,7 +5,7 @@ mollie = Service(
     api_key='123',
 )
 
-
+# pydantic
 class Payment(Model):
     resource: str
     id: str

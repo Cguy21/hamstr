@@ -6,8 +6,8 @@ Tool for gathering and aggregating data from hard to reach streams.
 After hooking into the required services, the STOORD app will deploy
 as a RESTful web api that handles incoming data streams.
 
-(e.g. gmail)
-Flow:
+
+Flow (e.g. gmail):
     1. Event happens (new incoming email)
     2. Wanted data is extracted (any)
     3. Data is send to STOORD web app

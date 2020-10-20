@@ -27,9 +27,9 @@ Constraints:
     2. API independent
     3. Data independent
 
-    How and where do we hook into clients data streams?
-    - Figure out what service client is using and wrap its API.
-    Hook into api calls and extract data.
+Q: How and where do we hook into clients data streams?
+A: Figure out what service client is using and wrap its API.
+Hook into api calls and extract data.
 
 Q: Who is the customer?
 A: Non technical people. Business intelligence tool.

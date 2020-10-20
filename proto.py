@@ -17,7 +17,8 @@ class Payment(Model):
 @mollie.collector(Payment, interval=timedelta(days=1), start=time(hour=17))
 def daily_payments():
     last_id = mollie.ctx.get('last_id')
-    payments = mollie.get('payments/', params={'from': last_id})
+    resp = mollie.get('payments/', params={'from': last_id})
+    payments = resp.json()['_embedded']
     mollie.ctx['last_id'] = payments[-1].id
     # will serialize payments into `Payment` objects
     # and store these in the nosql database

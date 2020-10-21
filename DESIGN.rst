@@ -33,3 +33,8 @@ Hook into api calls and extract data.
 
 Q: Who is the customer?
 A: Non technical people. Business intelligence tool.
+
+How to run Stoord?
+    - Starlette app
+    - background scheduler
+    - 

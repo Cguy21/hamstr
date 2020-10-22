@@ -8,14 +8,17 @@ Tool for gathering and aggregating data from decentralized streams.
 
     $ hamstr startproject <name>
 
-project/
-    deploy.cfg
+.. toctree::
+    :glob:
+
     project/
-        __init__.py
-        models.py
-        settings.py
-        collectors/
+        deploy.cfg
+        project/
             __init__.py
+            models.py
+            settings.py
+            collectors/
+                __init__.py
 
 
 To run collectors 1 time and terminating afterwards

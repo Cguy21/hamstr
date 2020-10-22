@@ -27,5 +27,6 @@ project/
 Architecture
 ============
 
-
-Running Hamstr means starting a scheduler with the collectors :method:`run` as actions.
+Run command starts scheduler with the collectors' collecting tasks.
+Scheduler runs indefinitely, when action should happen, it executes
+it and schedules it again.

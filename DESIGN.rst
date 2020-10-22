@@ -24,3 +24,8 @@ project/
         collectors/
             __init__.py
 
+Architecture
+============
+
+
+Running Hamstr means starting a scheduler with the collectors :method:`run` as actions.

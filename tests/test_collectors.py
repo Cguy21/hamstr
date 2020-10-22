@@ -2,13 +2,35 @@ from unittest.mock import MagicMock
 
 import pytest
 
-from stoord.app import Stoord
+from hamstr.collectors import Collector, pipeline
+
+
+def test_not_implemented_collector():
+
+    class TestCollector(Collector):
+        model = int
+
+    collector = TestCollector()
+
+    with pytest.raises(NotImplementedError):
+        collector.run()
 
 
 @pytest.fixture
-def app():
-    app = Stoord()
-    return app
+def collector():
+
+    class TestCollector(Collector):
+        model = int
+
+        def collect(self):
+            return 42
+
+        @pipeline
+        def is_not_41(self, integer):
+            if integer == 41:
+                return 
+
+    return TestCollector
 
 
 @pytest.mark.parametrize(
@@ -18,43 +40,9 @@ def app():
         ([42], int, [42])
     ]
 )
-def test_basic_collector(app, obj, model, ret):
-    
-    def collector():
-        return obj
-
-    app.add_collector(collector, model)
-    returns = app.collectors['collector'].run()
-
-    assert returns == ret
+def test_basic_collector(collector, obj, model, ret):
+    assert collector().run() == ret
 
 
-def test_collector_decorator(app):
-
-    @app.collector(int)
-    def collector():
-        return 42
-
-    returns = app.collectors['collector'].run()
-
-    assert returns == [42]
-
-
-@pytest.mark.parametrize(
-    'obj, returns', [
-        (1, [42]),
-        (101, [101])
-    ]
-)
-def test_collector_with_callback(app, obj, returns):
-
-    def callback(integer):
-        if integer > 100:
-            return integer
-        return 42
-
-    @app.collector(int, callbacks=[callback])
-    def collector():
-        return obj
-
-    assert app.collectors['collector'].run() == returns
+def test_pipeline_registration(collector):
+    pass

@@ -25,9 +25,13 @@ To start a new service
 
 This will create the following in your services module::
 
-    <name>/
-        collectors.py
-        models.py
+    project/
+        settings.py
+        services/
+            __init__.py
+            <name>/
+                collectors.py
+                models.py
 
 
 To run collectors 1 time and terminate afterwards

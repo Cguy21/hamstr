@@ -3,5 +3,4 @@
 .coverage
 .pytest_cache
 __pycache__
-design/
-DESIGN.rst
+/design/

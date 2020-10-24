@@ -16,6 +16,20 @@ This will create a directory with <name> and the following contents::
             __init__.py
 
 
+To start a new service 
+
+.. code-block:: shell
+
+    $ hamstr startservice <name>
+
+
+This will create the following in your services module::
+
+    <name>/
+        collectors.py
+        models.py
+
+
 To run collectors 1 time and terminate afterwards
 
 .. code-block:: shell

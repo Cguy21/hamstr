@@ -11,13 +11,9 @@ Tool for gathering and aggregating data from decentralized streams.
 This will create a directory with <name> and the following contents::
 
     <name>/
-        deploy.cfg
-        <name>/
+        settings.py
+        services/
             __init__.py
-            models.py
-            settings.py
-            collectors/
-                __init__.py
 
 
 To run collectors 1 time and terminate afterwards

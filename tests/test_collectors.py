@@ -25,11 +25,6 @@ def collector():
         def collect(self):
             return 42
 
-        @pipeline
-        def is_not_41(self, integer):
-            if integer == 41:
-                return 
-
     return TestCollector
 
 
@@ -45,4 +40,11 @@ def test_basic_collector(collector, obj, model, ret):
 
 
 def test_pipeline_registration(collector):
-    pass
+    
+    class TestCollector(collector):
+
+        @pipeline
+        def smaller_than_42(self, integer):
+            if integer > 42:
+                return 42
+            return integer

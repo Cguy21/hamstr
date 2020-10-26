@@ -105,6 +105,7 @@ pros: no code
 cons: no callbacks, limited customisability
 
 # hamstr.yml
+hamstr specification::
 
     name: project
     services:  # list of api providers

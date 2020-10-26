@@ -104,8 +104,7 @@ OPTION 3
 pros: no code
 cons: no callbacks, limited customisability
 
-# hamstr.yml
-.. code-block:: yaml
+# hamstr.yml::
 
     name: project
     services:  # list of api providers

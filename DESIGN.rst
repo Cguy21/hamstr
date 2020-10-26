@@ -104,21 +104,21 @@ OPTION 3
 pros: no code
 cons: no callbacks, limited customisability
 
-# hamstr.yml::
+# hamstr.yml
 
     name: project
     services:  # list of api providers
         mollie:
             base_url: https://api.mollie.com/v2
             api_key: "123"
-            paginator: SeekPaginator  # always calls list endpoint and paginates with paginator (so, only new objects)
+            paginator: SeekPaginator  # python class to handle pagination of api
             collectors:
                 /payments:  # endoint
                     interval:  # when to run collector
                         days: 1
                     model:  # return model of single object returned by get request
-                    resource: string
-                    id: string
+                        resource: string
+                        id: string
 
 Running hamstr
 

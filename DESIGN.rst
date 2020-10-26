@@ -33,7 +33,12 @@ cons: will always get all objects at endpoint (how to smart limit?)
         paginator=paginators.SeekPaginator
     )
 
-    mollie.add_collector(endpoint='payments', model=Model, interval=5, callbacks=[])
+    class Payment(Model):
+        resource: str
+        id: str
+        mode: str
+
+    mollie.add_collector(endpoint='payments', model=Payment, interval=5, callbacks=[])
 
     app.register_service(mollie)
 

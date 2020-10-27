@@ -1,48 +1,21 @@
 Hamstr
 ======
 
-Tool for gathering and aggregating data from decentralized streams.
+Tool for automatically collecting your data that is spread out among different APIs.
 
+Simplest example
+----------------
 
-.. code-block:: shell
+.. code-block:: python
 
-    $ hamstr startproject <name>
+    from hamstr import Hamstr
 
-This will create a directory with <name> and the following contents::
+    app = Hamstr()
+    app.add_collector(url='https://api.example.com/examples', interval=3600)
 
-    <name>/
-        settings.py
-        services/
-            __init__.py
+    if __name__ == '__main__':
+        app.run()
 
-
-To start a new service 
-
-.. code-block:: shell
-
-    $ hamstr startservice <name>
-
-
-This will create the following in your services module::
-
-    project/
-        settings.py
-        services/
-            __init__.py
-            <name>/
-                collectors.py
-                models.py
-
-
-To run collectors 1 time and terminate afterwards
-
-.. code-block:: shell
-
-    $ hamstr collect <project_path>
-
-
-To run project, which executes collectors when scheduled
-
-.. code-block:: shell
-
-    $ hamstr run <project_path>
+This will call the (nonexistent) https://api.example.com/examples endpoint every
+3600 seconds (1 hour) and, by default, write the response to a file with the timestamp
+of the collection as name.

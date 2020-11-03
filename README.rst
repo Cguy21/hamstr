@@ -6,16 +6,19 @@ Tool for automatically collecting your data that is spread out among different A
 Simplest example
 ----------------
 
+# example.py
+
 .. code-block:: python
 
-    from hamstr import Hamstr
+    from hamstr import Collector, endpoint
 
-    app = Hamstr()
-    app.add_collector(url='https://api.example.com/examples', interval=3600)
+    class ExampleCollector(Collector):
+        endpoints = [endpoint('https://api.example.com/examples')]
 
-    if __name__ == '__main__':
-        app.run()
+
+.. code-block:: shell
+
+    $ hamstr run example.py
 
 This will call the (nonexistent) https://api.example.com/examples endpoint every
-3600 seconds (1 hour) and, by default, write the response to a file with the timestamp
-of the collection as name.
+day and, by default, write the response to the filesysten. 

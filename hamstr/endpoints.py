@@ -3,46 +3,9 @@ from urllib.parse import urljoin
 from dataclasses import dataclass
 
 
-class Schema:
-
-    def __init__(self, **mappers):
-        self.mappers = mappers
-
-
-    def __call__(self, json: dict):
-        new = {}
-        for key, val in json.items():
-            for schema in self.mappers.values():
-                if key in schema:
-                    print(val)
-                elif schema in key:
-                    print(schema)
-                       
-                    
-
-
-                    
-
-                
-
-mollie = {
-    "amount": {
-        "value": "10.00",
-        "currency": "EUR"
-    }
-}
-
-mollie_schema = Schema(price='value')
-
-izettle = {
-    "amount": "10.00"
-}
-
-mollie_schema(mollie)
-
-
 def endpoint(
     url: str,
+    *,
     api_key: str = None,
     headers: dict = None,
     schema: Schema = None,
@@ -53,11 +16,6 @@ def endpoint(
     """
     Creates Endpoints for collector to use.
     """
-    # if not service:
-    #     service = Service(**options)
-    # else:
-    #     service.update(**options)
-    # return Endpoint(url_or_ending, service)
     if service:
         url = urljoin(service.base_url, url)
         if headers:
